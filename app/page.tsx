@@ -668,7 +668,7 @@ export default function MotorhomeRepairWebsite() {
             </div>
 
             <div className="md:flex md:justify-end">
-              <div className="mt-4 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:mt-6 md:p-6 md:-mt-[300px]">
+              <div className="mt-4 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:mt-6 md:p-6 md:-mt-[450px]">
                 {renderQuickBookingCard()}
               </div>
             </div>
