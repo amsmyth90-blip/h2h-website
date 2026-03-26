@@ -631,12 +631,12 @@ export default function MotorhomeRepairWebsite() {
                 </a>
               </div>
 
-              <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
+              <div className="mt-8 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
                 {[
                   ["MCEA Registered", ""],
                   ["Insured & experienced", "Work you can trust"],
                   ["Fully mobile", "We come to you"],
-                  ["Rapid response", "Fast, reliable service"],
+                  ["Excellent customer service", "Responsive and reliable"],
                 ].map(([value, label]) => (
                   <div key={value} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-4 shadow-sm backdrop-blur-sm">
                     <div className="text-lg font-black text-white">{value}</div>
