@@ -7,8 +7,10 @@ import {
   CheckCircle2,
   Clock3,
   MapPin,
+  Menu,
   ShieldCheck,
   Wrench,
+  X,
 } from "lucide-react";
 
 type PageView = "home" | "booking" | "faq" | "team" | "services";
@@ -145,6 +147,7 @@ export default function MotorhomeRepairWebsite() {
   const [bookingDetails, setBookingDetails] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [sendMessage, setSendMessage] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const bookingSummary = useMemo(
     () => `${selectedService} • ${appointmentType} • ${preferredDay}`,
@@ -159,31 +162,37 @@ export default function MotorhomeRepairWebsite() {
 
   const openHomePage = () => {
     setPageView("home");
+    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openBookingPage = () => {
     setPageView("booking");
+    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openFaqPage = () => {
     setPageView("faq");
+    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openTeamPage = () => {
     setPageView("team");
+    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openServicesPage = () => {
     setPageView("services");
+    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openHomeServices = () => {
     setPageView("home");
+    setMobileMenuOpen(false);
     setTimeout(() => {
       if (typeof window !== "undefined") {
         document.getElementById("services")?.scrollIntoView({
@@ -274,6 +283,13 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="flex items-center gap-2 md:gap-3">
             <button
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-700 md:hidden"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+            <button
               onClick={openBookingPage}
               className="rounded-2xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:scale-[1.02] md:px-4 md:text-sm"
             >
@@ -285,16 +301,17 @@ export default function MotorhomeRepairWebsite() {
           </div>
         </div>
 
-        <nav className="mt-3 flex gap-2 overflow-x-auto pb-1 text-xs font-semibold md:hidden">
-          <button onClick={openHomePage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">Home</button>
-          <button onClick={openServicesPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">Services</button>
-          <button onClick={openBookingPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">Booking</button>
-          <button onClick={openFaqPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">FAQ</button>
-          <button onClick={openTeamPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">About us</button>
-          <a href="https://www.mobilecaravanengineers.co.uk/" target="_blank" rel="noreferrer" className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">
-            MCEA
-          </a>
-        </nav>
+        {mobileMenuOpen ? (
+          <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm md:hidden">
+            <div className="grid gap-2 text-sm font-semibold text-slate-700">
+              <button onClick={openHomePage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">Home</button>
+              <button onClick={openServicesPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">Services</button>
+              <button onClick={openBookingPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">Booking</button>
+              <button onClick={openFaqPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">FAQ</button>
+              <button onClick={openTeamPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">About us</button>
+            </div>
+          </div>
+        ) : null}
       </div>
     </header>
   );
@@ -700,7 +717,7 @@ export default function MotorhomeRepairWebsite() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white">
+      <footer className="border-t border-slate-200 bg-white pb-24 md:pb-0">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="text-lg font-black">{brand.name}</div>
@@ -716,6 +733,23 @@ export default function MotorhomeRepairWebsite() {
           </div>
         </div>
       </footer>
+
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
+        <div className="mx-auto flex max-w-7xl gap-3">
+          <a
+            href={buildWhatsAppUrl()}
+            className="flex-1 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-center text-sm font-semibold text-emerald-700"
+          >
+            WhatsApp
+          </a>
+          <button
+            onClick={openBookingPage}
+            className="flex-1 rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white"
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
