@@ -660,7 +660,7 @@ export default function MotorhomeRepairWebsite() {
                   ["Excellent customer service", "Responsive and reliable"],
                 ].map(([value, label]) => (
                   <div key={value} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-4 shadow-sm backdrop-blur-sm">
-                    <div className="text-base font-black leading-tight text-white line-clamp-2 md:text-lg">{value}</div>
+                    <div className="text-sm font-black leading-snug text-white md:text-base">{value}</div>
                     <div className="mt-1 text-xs leading-5 text-slate-300 md:text-sm">{label}</div>
                   </div>
                 ))}
