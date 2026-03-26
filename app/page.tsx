@@ -7,10 +7,8 @@ import {
   CheckCircle2,
   Clock3,
   MapPin,
-  Menu,
   ShieldCheck,
   Wrench,
-  X,
 } from "lucide-react";
 
 type PageView = "home" | "booking" | "faq" | "team" | "services";
@@ -147,7 +145,6 @@ export default function MotorhomeRepairWebsite() {
   const [bookingDetails, setBookingDetails] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [sendMessage, setSendMessage] = useState("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const bookingSummary = useMemo(
     () => `${selectedService} • ${appointmentType} • ${preferredDay}`,
@@ -162,37 +159,31 @@ export default function MotorhomeRepairWebsite() {
 
   const openHomePage = () => {
     setPageView("home");
-    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openBookingPage = () => {
     setPageView("booking");
-    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openFaqPage = () => {
     setPageView("faq");
-    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openTeamPage = () => {
     setPageView("team");
-    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openServicesPage = () => {
     setPageView("services");
-    setMobileMenuOpen(false);
     scrollTop();
   };
 
   const openHomeServices = () => {
     setPageView("home");
-    setMobileMenuOpen(false);
     setTimeout(() => {
       if (typeof window !== "undefined") {
         document.getElementById("services")?.scrollIntoView({
@@ -265,14 +256,11 @@ export default function MotorhomeRepairWebsite() {
             <img
               src="/logo.jpg"
               alt="H2H Leisure logo"
-              className="h-14 w-14 rounded-full object-cover md:h-40 md:w-40 md:-mb-20"
+              className="h-16 w-16 rounded-full object-cover md:h-40 md:w-40 md:-mb-20"
             />
             <div className="min-w-0">
-              <div className="text-base font-black tracking-tight text-slate-950 md:text-2xl">{brand.name}</div>
-              <div className="max-w-[160px] text-[11px] leading-4 text-slate-500 md:max-w-none md:text-sm md:leading-5">
-                <span className="md:hidden">Motorhome & caravan repairs</span>
-                <span className="hidden md:inline">{brand.tagline}</span>
-              </div>
+              <div className="text-lg font-black tracking-tight text-slate-950 md:text-2xl">{brand.name}</div>
+              <div className="max-w-[150px] text-xs text-slate-500 md:max-w-none md:text-sm">{brand.tagline}</div>
             </div>
           </button>
 
@@ -286,13 +274,6 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="flex items-center gap-2 md:gap-3">
             <button
-              onClick={() => setMobileMenuOpen((open) => !open)}
-              className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-700 md:hidden"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-            <button
               onClick={openBookingPage}
               className="rounded-2xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:scale-[1.02] md:px-4 md:text-sm"
             >
@@ -304,23 +285,21 @@ export default function MotorhomeRepairWebsite() {
           </div>
         </div>
 
-        {mobileMenuOpen ? (
-          <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm md:hidden">
-            <div className="grid gap-2 text-sm font-semibold text-slate-700">
-              <button onClick={openHomePage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">Home</button>
-              <button onClick={openServicesPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">Services</button>
-              <button onClick={openBookingPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">Booking</button>
-              <button onClick={openFaqPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">FAQ</button>
-              <button onClick={openTeamPage} className="rounded-xl px-3 py-3 text-left hover:bg-slate-50">About us</button>
-              
-            </div>
-          </div>
-        ) : null}
+        <nav className="mt-3 flex gap-2 overflow-x-auto pb-1 text-xs font-semibold md:hidden">
+          <button onClick={openHomePage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">Home</button>
+          <button onClick={openServicesPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">Services</button>
+          <button onClick={openBookingPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">Booking</button>
+          <button onClick={openFaqPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">FAQ</button>
+          <button onClick={openTeamPage} className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">About us</button>
+          <a href="https://www.mobilecaravanengineers.co.uk/" target="_blank" rel="noreferrer" className="shrink-0 rounded-full bg-slate-100 px-3 py-2 text-slate-700">
+            MCEA
+          </a>
+        </nav>
       </div>
     </header>
   );
 
-  const renderQuickBookingCard = (full = false) => (
+  const QuickBookingCard = ({ full = false }: { full?: boolean }) => (
     <div>
       <div className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Quick booking</div>
       <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-950">Request a repair or inspection</h2>
@@ -537,7 +516,7 @@ export default function MotorhomeRepairWebsite() {
               </p>
 
               <div className="mt-8">
-                {renderQuickBookingCard(true)}
+                <QuickBookingCard full />
               </div>
             </div>
 
@@ -610,34 +589,34 @@ export default function MotorhomeRepairWebsite() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/45 to-slate-950/15" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl items-start px-4 pb-14 pt-10 md:px-6 md:pb-24 md:pt-24">
+        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl items-start px-4 pb-16 pt-14 md:px-6 md:pb-24 md:pt-24">
           <div className="grid w-full gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-center">
             <div className="max-w-2xl text-white">
-              <div className="mb-5 flex flex-wrap items-center gap-2 md:mb-6 md:gap-3">
+              <div className="mb-6 flex flex-wrap items-center gap-3">
                 <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-semibold text-emerald-300 shadow-sm backdrop-blur-sm">
-                  Craigavon & surrounding areas
+                  Primary coverage across Craigavon and surrounding areas
                 </div>
                 <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-semibold text-slate-200 shadow-sm backdrop-blur-sm">
-                  All NI covered (travel charges apply)
+                  All Northern Ireland covered (travel charges apply)
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/20 px-4 py-1.5 text-sm font-semibold text-red-200 shadow-sm backdrop-blur-sm">
                   🚨 Emergency callouts available
                 </div>
               </div>
 
-              <h1 className="text-3xl font-black leading-[0.95] tracking-tight sm:text-5xl md:text-7xl">
+              <h1 className="text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl md:text-7xl">
                 Motorhome repairs done properly — wherever you are.
               </h1>
 
-              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-200 sm:text-lg md:mt-6 md:text-xl">
+              <p className="mt-5 max-w-xl text-base leading-7 text-slate-200 sm:text-lg md:mt-6 md:text-xl">
                 H2H Leisure provides repairs and maintenance for motorhomes, caravans and campervans, from leaks and seals to skylights, windows, heating, boilers and solar, all with a mobile service that comes to you.
               </p>
 
-              <div className="mt-3 text-xs font-semibold leading-5 text-emerald-300 sm:text-sm">
+              <div className="mt-4 text-sm font-semibold text-emerald-300">
                 Primary coverage across Craigavon and surrounding areas. We also cover all of Northern Ireland, with travel charges applied where applicable.
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <button
                   onClick={openBookingPage}
                   className="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl transition hover:translate-y-[-1px]"
@@ -652,24 +631,24 @@ export default function MotorhomeRepairWebsite() {
                 </a>
               </div>
 
-              <div className="mt-6 grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
+              <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
                 {[
                   ["MCEA Registered", ""],
                   ["Insured & experienced", "Work you can trust"],
                   ["Fully mobile", "We come to you"],
-                  ["Excellent customer service", "Responsive and reliable"],
+                  ["Rapid response", "Fast, reliable service"],
                 ].map(([value, label]) => (
                   <div key={value} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-4 shadow-sm backdrop-blur-sm">
-                    <div className="text-sm font-black leading-snug text-white md:text-base">{value}</div>
-                    <div className="mt-1 text-xs leading-5 text-slate-300 md:text-sm">{label}</div>
+                    <div className="text-lg font-black text-white">{value}</div>
+                    <div className="mt-1 text-sm text-slate-300">{label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="md:flex md:justify-end">
-              <div className="mt-4 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:mt-6 md:p-6 md:-mt-[450px]">
-                {renderQuickBookingCard()}
+              <div className="mt-6 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:-mt-80">
+                <QuickBookingCard />
               </div>
             </div>
           </div>
@@ -721,7 +700,7 @@ export default function MotorhomeRepairWebsite() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white pb-24 md:pb-0">
+      <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="text-lg font-black">{brand.name}</div>
@@ -737,23 +716,6 @@ export default function MotorhomeRepairWebsite() {
           </div>
         </div>
       </footer>
-
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
-        <div className="mx-auto flex max-w-7xl gap-3">
-          <a
-            href={`tel:${brand.phone}`}
-            className="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-900"
-          >
-            Call
-          </a>
-          <a
-            href={buildWhatsAppUrl()}
-            className="flex-1 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-center text-sm font-semibold text-emerald-700"
-          >
-            WhatsApp
-          </a>
-        </div>
-      </div>
     </div>
   );
 }
