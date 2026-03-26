@@ -652,7 +652,7 @@ export default function MotorhomeRepairWebsite() {
                 </a>
               </div>
 
-              <div className="mt-6 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
+              <div className="mt-6 grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
                 {[
                   ["MCEA Registered", ""],
                   ["Insured & experienced", "Work you can trust"],
