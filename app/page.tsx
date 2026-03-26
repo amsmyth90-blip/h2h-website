@@ -657,10 +657,10 @@ export default function MotorhomeRepairWebsite() {
                   ["MCEA Registered", ""],
                   ["Insured & experienced", "Work you can trust"],
                   ["Fully mobile", "We come to you"],
-                  ["Rapid response", "Fast, reliable service"],
+                  ["Excellent customer service", "Responsive and reliable"],
                 ].map(([value, label]) => (
                   <div key={value} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-4 shadow-sm backdrop-blur-sm">
-                    <div className="text-base font-black leading-6 text-white md:text-lg">{value}</div>
+                    <div className="text-base font-black leading-tight text-white line-clamp-2 md:text-lg">{value}</div>
                     <div className="mt-1 text-xs leading-5 text-slate-300 md:text-sm">{label}</div>
                   </div>
                 ))}
@@ -668,7 +668,7 @@ export default function MotorhomeRepairWebsite() {
             </div>
 
             <div className="md:flex md:justify-end">
-              <div className="mt-4 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:mt-6 md:p-6 md:-mt-56">
+              <div className="mt-4 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-5 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:mt-6 md:p-6 md:-mt-[300px]">
                 {renderQuickBookingCard()}
               </div>
             </div>
