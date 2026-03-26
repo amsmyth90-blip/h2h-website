@@ -654,10 +654,17 @@ export default function MotorhomeRepairWebsite() {
                   ["Insured & experienced", "Work you can trust"],
                   ["Fully mobile", "We come to you"],
                   ["Excellent customer service", "Responsive and reliable"],
-                ].map(([value, label]) => (
+                ]).map(([value, label], index) => (
                   <div key={value} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-4 shadow-sm backdrop-blur-sm">
                     <div className="text-lg font-black text-white">{value}</div>
                     <div className="mt-1 text-sm text-slate-300">{label}</div>
+                    {index === 0 && (
+                      <img
+                        src="/mcea.jpg"
+                        alt="MCEA Registered"
+                        className="mt-3 h-8 w-auto md:hidden"
+                      />
+                    )}
                   </div>
                 ))}
               </div>
