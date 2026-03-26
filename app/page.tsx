@@ -682,7 +682,7 @@ export default function MotorhomeRepairWebsite() {
                           <img
                             src="/mcea.jpg"
                             alt="MCEA Registered"
-                            className="h-12 w-auto md:hidden"
+                            className="h-12 w-auto md:h-10"
                           />
                         </div>
                       </div>
