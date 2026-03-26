@@ -659,11 +659,15 @@ export default function MotorhomeRepairWebsite() {
                     <div className="text-lg font-black text-white">{value}</div>
                     <div className="mt-1 text-sm text-slate-300">{label}</div>
                     {index === 0 && (
-                      <img
-                        src="/mcea.jpg"
-                        alt="MCEA Registered"
-                        className="mt-3 h-8 w-auto md:hidden"
-                      />
+                      <div className="mt-4 flex w-full justify-center">
+                        <div className="rounded-xl bg-white p-3 shadow-sm">
+                          <img
+                            src="/mcea.jpg"
+                            alt="MCEA Registered"
+                            className="h-12 w-auto md:hidden"
+                          />
+                        </div>
+                      </div>
                     )}
                   </div>
                 ))}
