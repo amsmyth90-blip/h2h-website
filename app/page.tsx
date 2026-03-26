@@ -128,7 +128,7 @@ export default function MotorhomeRepairWebsite() {
       text: "Great service from first message to final repair. Quick response, easy to deal with, and really handy that he comes out to you.",
     },
     {
-      name: "Habitation check client",
+      name: "Habitation check customer",
       text: "Professional and thorough. Everything was explained clearly and the check gave us real peace of mind before travelling.",
     },
     {
@@ -282,6 +282,12 @@ export default function MotorhomeRepairWebsite() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
+            <a
+              href={`tel:${brand.phone}`}
+              className="hidden md:inline-flex rounded-2xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 md:text-sm"
+            >
+              Call Us
+            </a>
             <button
               onClick={() => setMobileMenuOpen((open) => !open)}
               className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-700 md:hidden"
@@ -634,6 +640,12 @@ export default function MotorhomeRepairWebsite() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={`tel:${brand.phone}`}
+                  className="rounded-2xl border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/15"
+                >
+                  Call Us
+                </a>
                 <button
                   onClick={openBookingPage}
                   className="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl transition hover:translate-y-[-1px]"
@@ -646,6 +658,12 @@ export default function MotorhomeRepairWebsite() {
                 >
                   WhatsApp
                 </a>
+                <button
+                  onClick={openServicesPage}
+                  className="rounded-2xl border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/15 md:hidden"
+                >
+                  View Services
+                </button>
               </div>
 
               <div className="mt-8 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
@@ -683,7 +701,7 @@ export default function MotorhomeRepairWebsite() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto mt-14 max-w-7xl px-4 py-10 md:mt-20 md:px-6">
+      <section id="services" className="hidden md:block mx-auto mt-14 max-w-7xl px-4 py-10 md:mt-20 md:px-6">
         <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Services</div>
@@ -733,7 +751,7 @@ export default function MotorhomeRepairWebsite() {
           <div>
             <div className="text-lg font-black">{brand.name}</div>
             <div className="text-sm text-slate-500">
-              Motorhome, caravan & campervan repairs and maintenance across Craigavon and a 20-mile radius.
+              Motorhome, caravan & campervan repairs and maintenance across Northern Ireland.
             </div>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-slate-500">
@@ -747,6 +765,12 @@ export default function MotorhomeRepairWebsite() {
 
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
         <div className="mx-auto flex max-w-7xl gap-3">
+          <a
+            href={`tel:${brand.phone}`}
+            className="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-900"
+          >
+            Call
+          </a>
           <a
             href={buildWhatsAppUrl()}
             className="flex-1 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-center text-sm font-semibold text-emerald-700"
