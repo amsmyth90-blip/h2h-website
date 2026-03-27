@@ -788,6 +788,7 @@ export default function MotorhomeRepairWebsite() {
                   bookingName={bookingName}
                   bookingPhone={bookingPhone}
                   bookingEmail={bookingEmail}
+                  bookingLocation={bookingLocation}
                   bookingDetails={bookingDetails}
                   selectedService={selectedService}
                   appointmentType={appointmentType}
@@ -798,6 +799,7 @@ export default function MotorhomeRepairWebsite() {
                   setBookingName={setBookingName}
                   setBookingPhone={setBookingPhone}
                   setBookingEmail={setBookingEmail}
+                  setBookingLocation={setBookingLocation}
                   setBookingDetails={setBookingDetails}
                   setSelectedService={setSelectedService}
                   setAppointmentType={setAppointmentType}
