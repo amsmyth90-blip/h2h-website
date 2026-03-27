@@ -36,7 +36,7 @@ export default function MotorhomeRepairWebsite() {
   const brand = {
     name: "H2H Leisure",
     tagline: "Motorhome, Caravan & Campervan Repairs & Maintenance",
-    phone: "07746 422634",
+    phone: "+447404249203",
     email: "hello@h2hleisure.co.uk",
   };
 
@@ -218,7 +218,7 @@ export default function MotorhomeRepairWebsite() {
       prefilled ||
       `Hello, I would like to enquire about ${selectedService}. Name: ${bookingName || ""}. Phone: ${bookingPhone || ""}. Email: ${bookingEmail || ""}. Appointment type: ${appointmentType}. Preferred timing: ${preferredDay}. Details: ${bookingDetails || ""}`;
 
-    return `https://wa.me/447746422634?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/447404249203?text=${encodeURIComponent(message)}`;
   };
 
   const sendBooking = async () => {
