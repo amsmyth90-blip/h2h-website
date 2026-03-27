@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
   Calendar,
@@ -33,26 +33,24 @@ type Testimonial = {
 };
 
 type QuickBookingCardProps = {
-  bookingLocation: string;
-  setBookingLocation: React.Dispatch<React.SetStateAction<string>>;
   full?: boolean;
   bookingName: string;
   bookingPhone: string;
   bookingEmail: string;
+  bookingLocation: string;
   bookingDetails: string;
   selectedService: string;
   appointmentType: string;
-  preferredDay: string;
   services: Service[];
   sendMessage: string;
   isSending: boolean;
   setBookingName: React.Dispatch<React.SetStateAction<string>>;
   setBookingPhone: React.Dispatch<React.SetStateAction<string>>;
   setBookingEmail: React.Dispatch<React.SetStateAction<string>>;
+  setBookingLocation: React.Dispatch<React.SetStateAction<string>>;
   setBookingDetails: React.Dispatch<React.SetStateAction<string>>;
   setSelectedService: React.Dispatch<React.SetStateAction<string>>;
   setAppointmentType: React.Dispatch<React.SetStateAction<string>>;
-  setPreferredDay: React.Dispatch<React.SetStateAction<string>>;
   openBookingPage: () => void;
   sendBooking: () => void;
 };
@@ -66,7 +64,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   bookingDetails,
   selectedService,
   appointmentType,
-  preferredDay,
   services,
   sendMessage,
   isSending,
@@ -77,7 +74,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   setBookingDetails,
   setSelectedService,
   setAppointmentType,
-  setPreferredDay,
   openBookingPage,
   sendBooking,
 }: QuickBookingCardProps) {
@@ -131,19 +127,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
           <option>Phone consultation first</option>
         </select>
 
-        {full ? (
-          <select
-            value={preferredDay}
-            onChange={(e) => setPreferredDay(e.target.value)}
-            className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white md:col-span-2"
-          >
-            <option>As soon as possible</option>
-            <option>This week</option>
-            <option>Next week</option>
-            <option>Just getting a quote first</option>
-          </select>
-        ) : null}
-
         <textarea
           value={bookingDetails}
           onChange={(e) => setBookingDetails(e.target.value)}
@@ -171,6 +154,49 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   );
 });
 
+export default function MotorhomeRepairWebsite() {
+  useEffect(() => {
+    document.title = "H2H Leisure | Motorhome Repairs in Northern Ireland";
+
+    const setMeta = (selector: string, attribute: "name" | "property", value: string, content: string) => {
+      let element = document.head.querySelector(selector) as HTMLMetaElement | null;
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attribute, value);
+        document.head.appendChild(element);
+      }
+      element.content = content;
+    };
+
+    let favicon = document.head.querySelector("link[rel='icon']") as HTMLLinkElement | null;
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.appendChild(favicon);
+    }
+    favicon.href = "/logo.jpg";
+
+    setMeta(
+      "meta[name='description']",
+      "name",
+      "description",
+      "Professional motorhome, caravan and campervan repairs across Craigavon and Northern Ireland. Mobile callouts, habitation checks, pre-purchase inspections and more from H2H Leisure.",
+    );
+    setMeta(
+      "meta[property='og:title']",
+      "property",
+      "og:title",
+      "H2H Leisure | Motorhome Repairs in Northern Ireland",
+    );
+    setMeta(
+      "meta[property='og:description']",
+      "property",
+      "og:description",
+      "Professional motorhome, caravan and campervan repairs across Craigavon and Northern Ireland. Mobile callouts, habitation checks, pre-purchase inspections and more.",
+    );
+    setMeta("meta[property='og:image']", "property", "og:image", "/logo.jpg");
+    setMeta("meta[property='og:type']", "property", "og:type", "website");
+  }, []);
 
   const brand = {
     name: "H2H Leisure",
@@ -279,7 +305,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   const [pageView, setPageView] = useState<PageView>("home");
   const [selectedService, setSelectedService] = useState("Habitation Checks");
   const [appointmentType, setAppointmentType] = useState("Mobile callout");
-  const [preferredDay, setPreferredDay] = useState("As soon as possible");
   const [bookingName, setBookingName] = useState("");
   const [bookingPhone, setBookingPhone] = useState("");
   const [bookingEmail, setBookingEmail] = useState("");
@@ -290,8 +315,8 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const bookingSummary = useMemo(
-    () => `${selectedService} • ${appointmentType} • ${preferredDay}`,
-    [selectedService, appointmentType, preferredDay],
+    () => `${selectedService} • ${appointmentType}`,
+    [selectedService, appointmentType],
   );
 
   const scrollTop = () => {
@@ -351,11 +376,10 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
     setBookingDetails("");
     setSelectedService("Habitation Checks");
     setAppointmentType("Mobile callout");
-    setPreferredDay("As soon as possible");
   };
 
   const buildWhatsAppUrl = () => {
-    return `https://wa.me/447404249203`;
+    return "https://wa.me/447404249203";
   };
 
   const sendBooking = async () => {
@@ -378,7 +402,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
           service: selectedService,
           location: bookingLocation,
           appointment: appointmentType,
-          timing: preferredDay,
           details: bookingDetails,
         },
         "-aYu7YznW_NvgDtQF",
@@ -420,7 +443,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
-            
             <a
               href={`tel:${brand.phone}`}
               className="hidden md:inline-flex rounded-2xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 md:text-sm"
@@ -460,7 +482,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
       </div>
     </header>
   );
-
 
   if (pageView === "faq") {
     return (
@@ -561,7 +582,7 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center flex flex-col items-start">
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center">
               <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" />
               <div className="text-xl font-black text-center w-full">James</div>
               <div className="text-sm font-semibold text-emerald-700 text-center w-full">Engineer</div>
@@ -570,7 +591,7 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
               </p>
             </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center flex flex-col items-start">
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center">
               <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" />
               <div className="text-xl font-black text-center w-full">Amy</div>
               <div className="text-sm font-semibold text-emerald-700 text-center w-full">Office & Bookings</div>
@@ -607,7 +628,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
                   bookingDetails={bookingDetails}
                   selectedService={selectedService}
                   appointmentType={appointmentType}
-                  preferredDay={preferredDay}
                   services={services}
                   sendMessage={sendMessage}
                   isSending={isSending}
@@ -618,7 +638,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
                   setBookingDetails={setBookingDetails}
                   setSelectedService={setSelectedService}
                   setAppointmentType={setAppointmentType}
-                  setPreferredDay={setPreferredDay}
                   openBookingPage={openBookingPage}
                   sendBooking={sendBooking}
                 />
@@ -636,10 +655,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
                   <div>
                     <div className="text-xs uppercase tracking-[0.18em] text-slate-400">Appointment type</div>
                     <div className="mt-1 text-base font-semibold text-white">{appointmentType}</div>
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-[0.18em] text-slate-400">Timing</div>
-                    <div className="mt-1 text-base font-semibold text-white">{preferredDay}</div>
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-[0.18em] text-slate-400">Overview</div>
@@ -761,11 +776,7 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
                     {index === 0 && (
                       <div className="mt-4 flex w-full justify-center">
                         <div className="rounded-xl bg-white p-3 shadow-sm">
-                          <img
-                            src="/mcea.jpg"
-                            alt="MCEA Registered"
-                            className="h-12 w-auto md:h-10"
-                          />
+                          <img src="/mcea.jpg" alt="MCEA Registered" className="h-12 w-auto md:h-10" />
                         </div>
                       </div>
                     )}
@@ -792,7 +803,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
                   bookingDetails={bookingDetails}
                   selectedService={selectedService}
                   appointmentType={appointmentType}
-                  preferredDay={preferredDay}
                   services={services}
                   sendMessage={sendMessage}
                   isSending={isSending}
@@ -803,7 +813,6 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
                   setBookingDetails={setBookingDetails}
                   setSelectedService={setSelectedService}
                   setAppointmentType={setAppointmentType}
-                  setPreferredDay={setPreferredDay}
                   openBookingPage={openBookingPage}
                   sendBooking={sendBooking}
                 />
@@ -863,4 +872,57 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
         <div className="grid gap-4 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <div key={testimonial.name} className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="
+              <div className="text-lg font-black tracking-tight">{testimonial.name}</div>
+              <p className="mt-3 text-sm leading-7 text-slate-600">“{testimonial.text}”</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer className="border-t border-slate-200 bg-white pb-24 md:pb-0">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <div className="text-lg font-black">{brand.name}</div>
+            <div className="text-sm text-slate-500">
+              Motorhome, caravan and campervan repairs, habitation checks and mobile callouts across Craigavon and Northern Ireland.
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+            <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-600" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.11 5.66 21.29 10.44 22v-7.06H7.9v-2.87h2.54V9.41c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.48H15.2c-1.25 0-1.64.78-1.64 1.58v1.9h2.79l-.45 2.87h-2.34V22C18.34 21.29 22 17.11 22 12.07z" />
+              </svg>
+            </a>
+            <button onClick={openHomeServices}>Services</button>
+            <button onClick={openBookingPage}>Booking</button>
+            <button onClick={openFaqPage}>FAQ</button>
+            <button onClick={openTeamPage}>About us</button>
+          </div>
+        </div>
+      </footer>
+
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
+        <div className="mx-auto flex max-w-7xl gap-3">
+          <a
+            href={`tel:${brand.phone}`}
+            className="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-900"
+          >
+            Call
+          </a>
+          <a
+            href={buildWhatsAppUrl()}
+            className="flex-1 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-center text-sm font-semibold text-emerald-700"
+          >
+            WhatsApp
+          </a>
+          <button
+            onClick={openBookingPage}
+            className="flex-1 rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white"
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
