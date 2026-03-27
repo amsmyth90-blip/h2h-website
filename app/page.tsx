@@ -322,7 +322,7 @@ export default function MotorhomeRepairWebsite() {
     </header>
   );
 
-  const QuickBookingCard = React.memo(({ full = false }: { full?: boolean }) => (
+  const renderQuickBookingCard = (full = false) => (
     <div>
       <div className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Quick booking</div>
       <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-950">Request a repair or inspection</h2>
@@ -403,7 +403,7 @@ export default function MotorhomeRepairWebsite() {
         </button>
       </div>
     </div>
-  ));
+  );
 
   if (pageView === "faq") {
     return (
@@ -504,8 +504,8 @@ export default function MotorhomeRepairWebsite() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-              <img src="/james.jpg" alt="James" className="mb-4 h-40 w-40 rounded-full object-cover" />
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
+              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-top ring-4 ring-slate-100" />
               <div className="text-xl font-black">James</div>
               <div className="text-sm font-semibold text-emerald-700">Engineer</div>
               <p className="mt-4 leading-7 text-slate-600">
@@ -513,8 +513,8 @@ export default function MotorhomeRepairWebsite() {
               </p>
             </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-              <img src="/amy.jpg" alt="Amy" className="mb-4 h-40 w-40 rounded-full object-cover" />
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
+              <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-top ring-4 ring-slate-100" />
               <div className="text-xl font-black">Amy</div>
               <div className="text-sm font-semibold text-emerald-700">Office & Bookings</div>
               <p className="mt-4 leading-7 text-slate-600">
@@ -541,7 +541,7 @@ export default function MotorhomeRepairWebsite() {
               </p>
 
               <div className="mt-8">
-                <QuickBookingCard full />
+                {renderQuickBookingCard(true)}
               </div>
             </div>
 
@@ -696,7 +696,7 @@ export default function MotorhomeRepairWebsite() {
 
             <div className="md:flex md:justify-end">
               <div className="mt-6 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:-mt-80">
-                <QuickBookingCard />
+                {renderQuickBookingCard()}
               </div>
             </div>
           </div>
