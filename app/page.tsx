@@ -91,7 +91,7 @@ export default function MotorhomeRepairWebsite() {
     },
     {
       title: "Mobile Callouts",
-      desc: "A fully mobile service across Craigavon and roughly a 20-mile radius. We come to you where practical.",
+      desc: "A fully mobile service across Craigavon and roughly a 15-mile radius. We come to you where practical.",
       icon: <MapPin className="h-6 w-6" />,
       badge: "Mobile",
     },
@@ -106,7 +106,7 @@ export default function MotorhomeRepairWebsite() {
   const faqs: Faq[] = [
     {
       q: "Do you offer a mobile service?",
-      a: "Yes. H2H Leisure is a fully mobile service covering Craigavon and approximately a 20-mile radius.",
+      a: "Yes. H2H Leisure is a fully mobile service covering Craigavon and approximately a 15-mile radius.",
     },
     {
       q: "What vehicles do you work on?",
@@ -118,7 +118,7 @@ export default function MotorhomeRepairWebsite() {
     },
     {
       q: "What areas do you cover?",
-      a: "We are based in Craigavon and cover roughly a 20-mile radius including Lurgan, Portadown, Banbridge, Armagh, Dungannon, Moira, Lisburn, and surrounding areas. We can also cover all other areas of Northern Ireland, though an additional travel charge may apply. If you are unsure, just get in touch and we will confirm.",
+      a: "We are based in Craigavon and cover roughly a 15-mile radius including Lurgan, Portadown, Banbridge, Armagh, Dungannon, Moira, Lisburn, and surrounding areas. We can also cover all other areas of Northern Ireland, though an additional travel charge may apply. If you are unsure, just get in touch and we will confirm.",
     },
   ];
 
