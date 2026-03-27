@@ -1,5 +1,11 @@
 "use client";
 
+export const metadata = {
+  title: "H2H Leisure | Motorhome Repairs Northern Ireland",
+  description:
+    "Motorhome, caravan and campervan repairs across Craigavon and Northern Ireland. Mobile service, habitation checks and more.",
+};
+
 import React, { useEffect, useMemo, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
