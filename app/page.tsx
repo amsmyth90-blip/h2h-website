@@ -548,7 +548,7 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center flex flex-col items-start">
-              <img src="/james.jpg"$1className="$2 mx-auto" style={{ transform: "scale(0.85)" }} />
+              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" style={{ transform: "scale(0.85)" }} />
               <div className="text-xl font-black text-center">James</div>
               <div className="text-sm font-semibold text-emerald-700 text-center">Engineer</div>
               <p className="mt-4 leading-7 text-slate-600 text-center">
@@ -557,7 +557,7 @@ export default function MotorhomeRepairWebsite() {
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center flex flex-col items-start">
-              <img src="/amy.jpg"$1className="$2 mx-auto" />
+              <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" />
               <div className="text-xl font-black text-center">Amy</div>
               <div className="text-sm font-semibold text-emerald-700 text-center">Office & Bookings</div>
               <p className="mt-4 leading-7 text-slate-600 text-center">
