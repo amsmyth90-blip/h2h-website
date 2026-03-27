@@ -505,6 +505,7 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+              <img src="/james.jpg" alt="James" className="mb-4 h-40 w-40 rounded-full object-cover" />
               <div className="text-xl font-black">James</div>
               <div className="text-sm font-semibold text-emerald-700">Engineer</div>
               <p className="mt-4 leading-7 text-slate-600">
@@ -513,6 +514,7 @@ export default function MotorhomeRepairWebsite() {
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+              <img src="/amy.jpg" alt="Amy" className="mb-4 h-40 w-40 rounded-full object-cover" />
               <div className="text-xl font-black">Amy</div>
               <div className="text-sm font-semibold text-emerald-700">Office & Bookings</div>
               <p className="mt-4 leading-7 text-slate-600">
