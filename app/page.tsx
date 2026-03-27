@@ -760,15 +760,15 @@ export default function MotorhomeRepairWebsite() {
             </div>
 
             <div className="md:flex md:justify-end">
+              <div className="mb-4 flex items-center justify-center gap-2 text-sm font-semibold text-white md:justify-end">
+                <span>Find us on Facebook</span>
+                <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-400">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                    <path d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.11 5.66 21.29 10.44 22v-7.06H7.9v-2.87h2.54V9.41c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.48H15.2c-1.25 0-1.64.78-1.64 1.58v1.9h2.79l-.45 2.87h-2.34V22C18.34 21.29 22 17.11 22 12.07z" />
+                  </svg>
+                </a>
+              </div>
               <div className="mt-6 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:-mt-80">
-                <div className="mb-4 flex items-center justify-center gap-2 text-sm font-semibold text-slate-700">
-                  <span>Find us on Facebook</span>
-                  <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
-                      <path d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.11 5.66 21.29 10.44 22v-7.06H7.9v-2.87h2.54V9.41c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.48H15.2c-1.25 0-1.64.78-1.64 1.58v1.9h2.79l-.45 2.87h-2.34V22C18.34 21.29 22 17.11 22 12.07z" />
-                    </svg>
-                  </a>
-                </div>
                 <QuickBookingCard
                   bookingName={bookingName}
                   bookingPhone={bookingPhone}
