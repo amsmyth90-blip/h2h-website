@@ -322,7 +322,7 @@ export default function MotorhomeRepairWebsite() {
     </header>
   );
 
-  const QuickBookingCard = ({ full = false }: { full?: boolean }) => (
+  const QuickBookingCard = React.memo(({ full = false }: { full?: boolean }) => (
     <div>
       <div className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Quick booking</div>
       <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-950">Request a repair or inspection</h2>
