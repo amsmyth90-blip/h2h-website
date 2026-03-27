@@ -407,6 +407,11 @@ export default function MotorhomeRepairWebsite() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
+            <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="hidden md:inline-flex text-slate-600 hover:text-blue-600">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.11 5.66 21.29 10.44 22v-7.06H7.9v-2.87h2.54V9.41c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.48H15.2c-1.25 0-1.64.78-1.64 1.58v1.9h2.79l-.45 2.87h-2.34V22C18.34 21.29 22 17.11 22 12.07z" />
+              </svg>
+            </a>
             <a
               href={`tel:${brand.phone}`}
               className="hidden md:inline-flex rounded-2xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 md:text-sm"
@@ -844,14 +849,7 @@ export default function MotorhomeRepairWebsite() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 md:px-6">
-        <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 md:p-8">
-          <h2 className="text-2xl font-black tracking-tight text-slate-950">Why customers search for H2H Leisure</h2>
-          <p className="mt-3 text-sm leading-7 text-slate-600 md:text-base">
-            Customers typically find us when searching for motorhome repairs in Craigavon, caravan repairs in Northern Ireland, mobile motorhome repairs, campervan repairs, habitation checks, pre-purchase inspections, water leak repairs, boiler and heating repairs, or skylight and window repairs. Our aim is to provide a professional, responsive and fully mobile service with clear communication from first enquiry to completed repair.
-          </p>
-        </div>
-      </section>
+      
 
       <footer className="border-t border-slate-200 bg-white pb-24 md:pb-0">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
