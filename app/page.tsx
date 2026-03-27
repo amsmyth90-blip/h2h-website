@@ -213,13 +213,8 @@ export default function MotorhomeRepairWebsite() {
     setPreferredDay("As soon as possible");
   };
 
-  const buildWhatsAppUrl = (prefilled?: string) => {
-    const message =
-      prefilled ||
-      `Hello, I would like to enquire about ${selectedService}. Name: ${bookingName || ""}. Phone: ${bookingPhone || ""}. Email: ${bookingEmail || ""}. Appointment type: ${appointmentType}. Preferred timing: ${preferredDay}. Details: ${bookingDetails || ""}`;
-
-    return `https://wa.me/447404249203?text=${encodeURIComponent(message)}`;
-  };
+  const buildWhatsAppUrl = () => {
+    return `https://wa.me/
 
   const sendBooking = async () => {
     if (!bookingName || !bookingPhone || !bookingEmail || !bookingDetails) {
@@ -505,7 +500,7 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
-              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-top ring-4 ring-slate-100" />
+              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100" />
               <div className="text-xl font-black">James</div>
               <div className="text-sm font-semibold text-emerald-700">Engineer</div>
               <p className="mt-4 leading-7 text-slate-600">
@@ -514,7 +509,7 @@ export default function MotorhomeRepairWebsite() {
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
-              <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-top ring-4 ring-slate-100" />
+              <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100" />
               <div className="text-xl font-black">Amy</div>
               <div className="text-sm font-semibold text-emerald-700">Office & Bookings</div>
               <p className="mt-4 leading-7 text-slate-600">
