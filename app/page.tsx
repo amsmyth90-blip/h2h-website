@@ -542,25 +542,25 @@ export default function MotorhomeRepairWebsite() {
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">About us</div>
             <h1 className="mt-2 text-4xl font-black tracking-tight md:text-5xl">About H2H Leisure</h1>
             <p className="mt-4 text-lg text-slate-600">
-              A small, reliable team focused on quality workmanship, clear communication, and making things as straightforward as possible for every customer across Craigavon and Northern Ireland.
+              A small, reliable team focused on quality workmanship, clear communication, and making things as straightforward as possible for every customer.
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
               <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100" style={{ transform: "scale(0.85)" }} />
-              <div className="text-xl font-black">James</div>
-              <div className="text-sm font-semibold text-emerald-700">Engineer</div>
-              <p className="mt-4 leading-7 text-slate-600">
+              <div className="text-xl font-black text-center">James</div>
+              <div className="text-sm font-semibold text-emerald-700 text-center">Engineer</div>
+              <p className="mt-4 leading-7 text-slate-600 text-center">
                 James handles all repair and maintenance work, from diagnosing leaks to fitting and fixing key systems. With hands-on experience and a practical approach, the focus is always on getting the job done properly and reliably.
               </p>
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
               <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100" />
-              <div className="text-xl font-black">Amy</div>
-              <div className="text-sm font-semibold text-emerald-700">Office & Bookings</div>
-              <p className="mt-4 leading-7 text-slate-600">
+              <div className="text-xl font-black text-center">Amy</div>
+              <div className="text-sm font-semibold text-emerald-700 text-center">Office & Bookings</div>
+              <p className="mt-4 leading-7 text-slate-600 text-center">
                 Amy manages bookings, customer communication, and day-to-day organisation. From first enquiry to scheduling, she ensures everything runs smoothly and customers are kept informed.
               </p>
             </div>
