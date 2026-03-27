@@ -1,11 +1,5 @@
 "use client";
 
-export const metadata = {
-  title: "H2H Leisure | Motorhome Repairs Northern Ireland",
-  description:
-    "Motorhome, caravan and campervan repairs across Craigavon and Northern Ireland. Mobile service, habitation checks and more.",
-};
-
 import React, { useEffect, useMemo, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -875,60 +869,4 @@ export default function MotorhomeRepairWebsite() {
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">What customers say</div>
           <h2 className="text-3xl font-black tracking-tight">Trusted by motorhome owners</h2>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="text-lg font-black tracking-tight">{testimonial.name}</div>
-              <p className="mt-3 text-sm leading-7 text-slate-600">“{testimonial.text}”</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <footer className="border-t border-slate-200 bg-white pb-24 md:pb-0">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <div className="text-lg font-black">{brand.name}</div>
-            <div className="text-sm text-slate-500">
-              Motorhome, caravan and campervan repairs, habitation checks and mobile callouts across Craigavon and Northern Ireland.
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
-            <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-600" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
-                <path d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.11 5.66 21.29 10.44 22v-7.06H7.9v-2.87h2.54V9.41c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.48H15.2c-1.25 0-1.64.78-1.64 1.58v1.9h2.79l-.45 2.87h-2.34V22C18.34 21.29 22 17.11 22 12.07z" />
-              </svg>
-            </a>
-            <button onClick={openHomeServices}>Services</button>
-            <button onClick={openBookingPage}>Booking</button>
-            <button onClick={openFaqPage}>FAQ</button>
-            <button onClick={openTeamPage}>About us</button>
-          </div>
-        </div>
-      </footer>
-
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
-        <div className="mx-auto flex max-w-7xl gap-3">
-          <a
-            href={`tel:${brand.phone}`}
-            className="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-900"
-          >
-            Call
-          </a>
-          <a
-            href={buildWhatsAppUrl()}
-            className="flex-1 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-center text-sm font-semibold text-emerald-700"
-          >
-            WhatsApp
-          </a>
-          <button
-            onClick={openBookingPage}
-            className="flex-1 rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white"
-          >
-            Book Now
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+    
