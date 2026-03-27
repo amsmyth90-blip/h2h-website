@@ -33,6 +33,8 @@ type Testimonial = {
 };
 
 type QuickBookingCardProps = {
+  bookingLocation: string;
+  setBookingLocation: React.Dispatch<React.SetStateAction<string>>;
   full?: boolean;
   bookingName: string;
   bookingPhone: string;
@@ -60,6 +62,7 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   bookingName,
   bookingPhone,
   bookingEmail,
+  bookingLocation,
   bookingDetails,
   selectedService,
   appointmentType,
@@ -70,6 +73,7 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
   setBookingName,
   setBookingPhone,
   setBookingEmail,
+  setBookingLocation,
   setBookingDetails,
   setSelectedService,
   setAppointmentType,
@@ -100,6 +104,12 @@ const QuickBookingCard = React.memo(function QuickBookingCard({
           onChange={(e) => setBookingEmail(e.target.value)}
           className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white ${full ? "md:col-span-2" : ""}`}
           placeholder="Email"
+        />
+        <input
+          value={bookingLocation}
+          onChange={(e) => setBookingLocation(e.target.value)}
+          className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white ${full ? "md:col-span-2" : ""}`}
+          placeholder="Location / postcode"
         />
 
         <select
@@ -273,6 +283,7 @@ export default function MotorhomeRepairWebsite() {
   const [bookingName, setBookingName] = useState("");
   const [bookingPhone, setBookingPhone] = useState("");
   const [bookingEmail, setBookingEmail] = useState("");
+  const [bookingLocation, setBookingLocation] = useState("");
   const [bookingDetails, setBookingDetails] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [sendMessage, setSendMessage] = useState("");
@@ -336,6 +347,7 @@ export default function MotorhomeRepairWebsite() {
     setBookingName("");
     setBookingPhone("");
     setBookingEmail("");
+    setBookingLocation("");
     setBookingDetails("");
     setSelectedService("Habitation Checks");
     setAppointmentType("Mobile callout");
@@ -347,8 +359,8 @@ export default function MotorhomeRepairWebsite() {
   };
 
   const sendBooking = async () => {
-    if (!bookingName || !bookingPhone || !bookingEmail || !bookingDetails) {
-      setSendMessage("Please fill in your name, phone, email, and a short description of the issue.");
+    if (!bookingName || !bookingPhone || !bookingEmail || !bookingLocation || !bookingDetails) {
+      setSendMessage("Please fill in your name, phone, email, location, and a short description of the issue.");
       return;
     }
 
@@ -364,6 +376,7 @@ export default function MotorhomeRepairWebsite() {
           phone: bookingPhone,
           email: bookingEmail,
           service: selectedService,
+          location: bookingLocation,
           appointment: appointmentType,
           timing: preferredDay,
           details: bookingDetails,
@@ -590,6 +603,7 @@ export default function MotorhomeRepairWebsite() {
                   bookingName={bookingName}
                   bookingPhone={bookingPhone}
                   bookingEmail={bookingEmail}
+                  bookingLocation={bookingLocation}
                   bookingDetails={bookingDetails}
                   selectedService={selectedService}
                   appointmentType={appointmentType}
@@ -600,6 +614,7 @@ export default function MotorhomeRepairWebsite() {
                   setBookingName={setBookingName}
                   setBookingPhone={setBookingPhone}
                   setBookingEmail={setBookingEmail}
+                  setBookingLocation={setBookingLocation}
                   setBookingDetails={setBookingDetails}
                   setSelectedService={setSelectedService}
                   setAppointmentType={setAppointmentType}
