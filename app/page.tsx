@@ -32,6 +32,135 @@ type Testimonial = {
   text: string;
 };
 
+type QuickBookingCardProps = {
+  full?: boolean;
+  bookingName: string;
+  bookingPhone: string;
+  bookingEmail: string;
+  bookingDetails: string;
+  selectedService: string;
+  appointmentType: string;
+  preferredDay: string;
+  services: Service[];
+  sendMessage: string;
+  isSending: boolean;
+  setBookingName: React.Dispatch<React.SetStateAction<string>>;
+  setBookingPhone: React.Dispatch<React.SetStateAction<string>>;
+  setBookingEmail: React.Dispatch<React.SetStateAction<string>>;
+  setBookingDetails: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedService: React.Dispatch<React.SetStateAction<string>>;
+  setAppointmentType: React.Dispatch<React.SetStateAction<string>>;
+  setPreferredDay: React.Dispatch<React.SetStateAction<string>>;
+  openBookingPage: () => void;
+  sendBooking: () => void;
+};
+
+const QuickBookingCard = React.memo(function QuickBookingCard({
+  full = false,
+  bookingName,
+  bookingPhone,
+  bookingEmail,
+  bookingDetails,
+  selectedService,
+  appointmentType,
+  preferredDay,
+  services,
+  sendMessage,
+  isSending,
+  setBookingName,
+  setBookingPhone,
+  setBookingEmail,
+  setBookingDetails,
+  setSelectedService,
+  setAppointmentType,
+  setPreferredDay,
+  openBookingPage,
+  sendBooking,
+}: QuickBookingCardProps) {
+  return (
+    <div>
+      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Quick booking</div>
+      <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-950">Request a repair or inspection</h2>
+
+      <div className={`mt-5 grid gap-3 ${full ? "md:grid-cols-2" : ""}`}>
+        <input
+          value={bookingName}
+          onChange={(e) => setBookingName(e.target.value)}
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
+          placeholder="Full name"
+        />
+        <input
+          value={bookingPhone}
+          onChange={(e) => setBookingPhone(e.target.value)}
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
+          placeholder="Phone"
+        />
+        <input
+          value={bookingEmail}
+          onChange={(e) => setBookingEmail(e.target.value)}
+          className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white ${full ? "md:col-span-2" : ""}`}
+          placeholder="Email"
+        />
+
+        <select
+          value={selectedService}
+          onChange={(e) => setSelectedService(e.target.value)}
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
+        >
+          {services.map((service) => (
+            <option key={service.title}>{service.title}</option>
+          ))}
+        </select>
+
+        <select
+          value={appointmentType}
+          onChange={(e) => setAppointmentType(e.target.value)}
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
+        >
+          <option>Mobile callout</option>
+          <option>Phone consultation first</option>
+        </select>
+
+        {full ? (
+          <select
+            value={preferredDay}
+            onChange={(e) => setPreferredDay(e.target.value)}
+            className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white md:col-span-2"
+          >
+            <option>As soon as possible</option>
+            <option>This week</option>
+            <option>Next week</option>
+            <option>Just getting a quote first</option>
+          </select>
+        ) : null}
+
+        <textarea
+          value={bookingDetails}
+          onChange={(e) => setBookingDetails(e.target.value)}
+          className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white ${full ? "min-h-[140px] md:col-span-2" : "min-h-[90px]"}`}
+          placeholder={full ? "Describe the issue, any leak points, appliances involved, or anything useful to know..." : "Briefly describe the issue..."}
+        />
+
+        {sendMessage ? (
+          <div
+            className={`rounded-2xl px-4 py-3 text-sm font-medium ${full ? "md:col-span-2" : ""} ${sendMessage.startsWith("Booking request sent") ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}
+          >
+            {sendMessage}
+          </div>
+        ) : null}
+
+        <button
+          onClick={full ? sendBooking : openBookingPage}
+          disabled={isSending}
+          className={`rounded-2xl bg-slate-900 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60 ${full ? "md:col-span-2" : ""}`}
+        >
+          {isSending ? "Sending..." : full ? "Submit booking request" : "Continue booking"}
+        </button>
+      </div>
+    </div>
+  );
+});
+
 export default function MotorhomeRepairWebsite() {
   const brand = {
     name: "H2H Leisure",
@@ -214,7 +343,8 @@ export default function MotorhomeRepairWebsite() {
   };
 
   const buildWhatsAppUrl = () => {
-    return `https://wa.me/
+    return `https://wa.me/447404249203`;
+  };
 
   const sendBooking = async () => {
     if (!bookingName || !bookingPhone || !bookingEmail || !bookingDetails) {
@@ -317,88 +447,6 @@ export default function MotorhomeRepairWebsite() {
     </header>
   );
 
-  const renderQuickBookingCard = (full = false) => (
-    <div>
-      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Quick booking</div>
-      <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-950">Request a repair or inspection</h2>
-
-      <div className={`mt-5 grid gap-3 ${full ? "md:grid-cols-2" : ""}`}>
-        <input
-          value={bookingName}
-          onChange={(e) => setBookingName(e.target.value)}
-          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
-          placeholder="Full name"
-        />
-        <input
-          value={bookingPhone}
-          onChange={(e) => setBookingPhone(e.target.value)}
-          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
-          placeholder="Phone"
-        />
-        <input
-          value={bookingEmail}
-          onChange={(e) => setBookingEmail(e.target.value)}
-          className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white ${full ? "md:col-span-2" : ""}`}
-          placeholder="Email"
-        />
-
-        <select
-          value={selectedService}
-          onChange={(e) => setSelectedService(e.target.value)}
-          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
-        >
-          {services.map((service) => (
-            <option key={service.title}>{service.title}</option>
-          ))}
-        </select>
-
-        <select
-          value={appointmentType}
-          onChange={(e) => setAppointmentType(e.target.value)}
-          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white"
-        >
-          <option>Mobile callout</option>
-          <option>Phone consultation first</option>
-        </select>
-
-        {full ? (
-          <select
-            value={preferredDay}
-            onChange={(e) => setPreferredDay(e.target.value)}
-            className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white md:col-span-2"
-          >
-            <option>As soon as possible</option>
-            <option>This week</option>
-            <option>Next week</option>
-            <option>Just getting a quote first</option>
-          </select>
-        ) : null}
-
-        <textarea
-          value={bookingDetails}
-          onChange={(e) => setBookingDetails(e.target.value)}
-          className={`rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-emerald-300 focus:bg-white ${full ? "min-h-[140px] md:col-span-2" : "min-h-[90px]"}`}
-          placeholder={full ? "Describe the issue, any leak points, appliances involved, or anything useful to know..." : "Briefly describe the issue..."}
-        />
-
-        {sendMessage ? (
-          <div
-            className={`rounded-2xl px-4 py-3 text-sm font-medium ${full ? "md:col-span-2" : ""} ${sendMessage.startsWith("Booking request sent") ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}
-          >
-            {sendMessage}
-          </div>
-        ) : null}
-
-        <button
-          onClick={full ? sendBooking : openBookingPage}
-          disabled={isSending}
-          className={`rounded-2xl bg-slate-900 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60 ${full ? "md:col-span-2" : ""}`}
-        >
-          {isSending ? "Sending..." : full ? "Submit booking request" : "Continue booking"}
-        </button>
-      </div>
-    </div>
-  );
 
   if (pageView === "faq") {
     return (
@@ -536,7 +584,28 @@ export default function MotorhomeRepairWebsite() {
               </p>
 
               <div className="mt-8">
-                {renderQuickBookingCard(true)}
+                <QuickBookingCard
+                  full
+                  bookingName={bookingName}
+                  bookingPhone={bookingPhone}
+                  bookingEmail={bookingEmail}
+                  bookingDetails={bookingDetails}
+                  selectedService={selectedService}
+                  appointmentType={appointmentType}
+                  preferredDay={preferredDay}
+                  services={services}
+                  sendMessage={sendMessage}
+                  isSending={isSending}
+                  setBookingName={setBookingName}
+                  setBookingPhone={setBookingPhone}
+                  setBookingEmail={setBookingEmail}
+                  setBookingDetails={setBookingDetails}
+                  setSelectedService={setSelectedService}
+                  setAppointmentType={setAppointmentType}
+                  setPreferredDay={setPreferredDay}
+                  openBookingPage={openBookingPage}
+                  sendBooking={sendBooking}
+                />
               </div>
             </div>
 
@@ -691,7 +760,27 @@ export default function MotorhomeRepairWebsite() {
 
             <div className="md:flex md:justify-end">
               <div className="mt-6 w-full max-w-[450px] rounded-[2rem] border border-white/10 bg-white/92 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.28)] backdrop-blur-md md:-mt-80">
-                {renderQuickBookingCard()}
+                <QuickBookingCard
+                  bookingName={bookingName}
+                  bookingPhone={bookingPhone}
+                  bookingEmail={bookingEmail}
+                  bookingDetails={bookingDetails}
+                  selectedService={selectedService}
+                  appointmentType={appointmentType}
+                  preferredDay={preferredDay}
+                  services={services}
+                  sendMessage={sendMessage}
+                  isSending={isSending}
+                  setBookingName={setBookingName}
+                  setBookingPhone={setBookingPhone}
+                  setBookingEmail={setBookingEmail}
+                  setBookingDetails={setBookingDetails}
+                  setSelectedService={setSelectedService}
+                  setAppointmentType={setAppointmentType}
+                  setPreferredDay={setPreferredDay}
+                  openBookingPage={openBookingPage}
+                  sendBooking={sendBooking}
+                />
               </div>
             </div>
           </div>
