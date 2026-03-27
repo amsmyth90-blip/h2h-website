@@ -2,16 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import emailjs from "@emailjs/browser";
-import {
-  Calendar,
-  CheckCircle2,
-  Clock3,
-  MapPin,
-  Menu,
-  ShieldCheck,
-  Wrench,
-  X,
-} from "lucide-react";
+import {$1, Facebook} from "lucide-react";
 
 type PageView = "home" | "booking" | "faq" | "team" | "services";
 
@@ -861,7 +852,10 @@ export default function MotorhomeRepairWebsite() {
               Motorhome, caravan and campervan repairs, habitation checks and mobile callouts across Craigavon and Northern Ireland.
             </div>
           </div>
-          <div className="flex flex-wrap gap-4 text-sm text-slate-500">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+            <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-600">
+              <Facebook className="h-5 w-5" />
+            </a>
             <button onClick={openHomeServices}>Services</button>
             <button onClick={openBookingPage}>Booking</button>
             <button onClick={openFaqPage}>FAQ</button>
