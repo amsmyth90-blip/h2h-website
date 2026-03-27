@@ -759,8 +759,8 @@ export default function MotorhomeRepairWebsite() {
               </div>
             </div>
 
-            <div className="md:flex md:justify-end">
-              <div className="mb-4 flex items-center justify-center gap-2 text-sm font-semibold text-white md:justify-end">
+            <div className="md:flex md:flex-col md:items-end">
+              <div className="mb-4 flex items-center justify-center gap-2 self-end text-sm font-semibold text-white">
                 <span>Find us on Facebook</span>
                 <a href="https://www.facebook.com/p/H2H-Leisure-61579803252525/" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-400">
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
