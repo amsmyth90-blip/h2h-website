@@ -548,7 +548,7 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm flex flex-col items-start">
-              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-[50%_20%] ring-4 ring-slate-100" style={{ transform: "scale(0.9)" }} />
+              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100" style={{ transform: "scale(0.85)" }} />
               <div className="text-xl font-black">James</div>
               <div className="text-sm font-semibold text-emerald-700">Engineer</div>
               <p className="mt-4 leading-7 text-slate-600">
