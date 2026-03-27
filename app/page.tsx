@@ -301,7 +301,7 @@ export default function MotorhomeRepairWebsite() {
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
-            <a href="https://www.mobilecaravanengi target="_blank" rel="noreferrer" className="hidden md:block">
+            <a href="https://www.mobilecaravanengineers.co.uk/" target="_blank" rel="noreferrer" className="hidden md:block">
               <img src="/mcea.jpg" alt="MCEA Registered" className="h-10 w-auto" />
             </a>
           </div>
