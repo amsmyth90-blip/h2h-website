@@ -548,9 +548,9 @@ export default function MotorhomeRepairWebsite() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center flex flex-col items-start">
-              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" style={{ transform: "scale(0.85)" }} />
-              <div className="text-xl font-black text-center">James</div>
-              <div className="text-sm font-semibold text-emerald-700 text-center">Engineer</div>
+              <img src="/james.jpg" alt="James" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" />
+              <div className="text-xl font-black text-center w-full">James</div>
+              <div className="text-sm font-semibold text-emerald-700 text-center w-full">Engineer</div>
               <p className="mt-4 leading-7 text-slate-600 text-center">
                 James handles all repair and maintenance work, from diagnosing leaks to fitting and fixing key systems. With hands-on experience and a practical approach, the focus is always on getting the job done properly and reliably.
               </p>
@@ -558,8 +558,8 @@ export default function MotorhomeRepairWebsite() {
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm text-center flex flex-col items-center flex flex-col items-start">
               <img src="/amy.jpg" alt="Amy" className="mb-5 h-40 w-40 rounded-full object-cover object-center ring-4 ring-slate-100 mx-auto" />
-              <div className="text-xl font-black text-center">Amy</div>
-              <div className="text-sm font-semibold text-emerald-700 text-center">Office & Bookings</div>
+              <div className="text-xl font-black text-center w-full">Amy</div>
+              <div className="text-sm font-semibold text-emerald-700 text-center w-full">Office & Bookings</div>
               <p className="mt-4 leading-7 text-slate-600 text-center">
                 Amy manages bookings, customer communication, and day-to-day organisation. From first enquiry to scheduling, she ensures everything runs smoothly and customers are kept informed.
               </p>
