@@ -289,19 +289,19 @@ export default function MotorhomeRepairWebsite() {
               Call Us
             </a>
             <button
+              onClick={openBookingPage}
+              className="rounded-2xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:scale-[1.02] md:px-4 md:text-sm"
+            >
+              Book Now
+            </button>
+            <button
               onClick={() => setMobileMenuOpen((open) => !open)}
               className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-700 md:hidden"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
-            <button
-              onClick={openBookingPage}
-              className="rounded-2xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:scale-[1.02] md:px-4 md:text-sm"
-            >
-              Book Now
-            </button>
-            <a href="https://www.mobilecaravanengineers.co.uk/" target="_blank" rel="noreferrer" className="hidden md:block">
+            <a href="https://www.mobilecaravanengi target="_blank" rel="noreferrer" className="hidden md:block">
               <img src="/mcea.jpg" alt="MCEA Registered" className="h-10 w-auto" />
             </a>
           </div>
@@ -459,7 +459,7 @@ export default function MotorhomeRepairWebsite() {
               <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Services page</div>
               <h1 className="mt-2 text-4xl font-black tracking-tight md:text-5xl">What we do</h1>
               <p className="mt-4 text-lg leading-8 text-slate-600">
-                A full look at the repair, maintenance, inspection, and callout services available through H2H Leisure.
+                A full look at the motorhome, caravan and campervan repair, maintenance, inspection and mobile callout services available through H2H Leisure across Craigavon and Northern Ireland.
               </p>
             </div>
 
@@ -499,7 +499,7 @@ export default function MotorhomeRepairWebsite() {
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">About us</div>
             <h1 className="mt-2 text-4xl font-black tracking-tight md:text-5xl">About H2H Leisure</h1>
             <p className="mt-4 text-lg text-slate-600">
-              A small, reliable team focused on quality workmanship, clear communication, and making things as straightforward as possible for every customer.
+              A small, reliable team focused on quality workmanship, clear communication, and making things as straightforward as possible for every customer across Craigavon and Northern Ireland.
             </p>
           </div>
 
@@ -628,15 +628,15 @@ export default function MotorhomeRepairWebsite() {
               </div>
 
               <h1 className="text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl md:text-7xl">
-                Motorhome repairs done properly — wherever you are.
+                Professional motorhome repairs - wherever you are
               </h1>
 
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-200 sm:text-lg md:mt-6 md:text-xl">
-                H2H Leisure provides repairs and maintenance for motorhomes, caravans and campervans, from leaks and seals to skylights, windows, heating, boilers and solar, all with a mobile service that comes to you.
+                H2H Leisure provides professional motorhome repairs in Craigavon and across Northern Ireland. We specialise in caravan, campervan and motorhome repairs, including habitation checks, water leak repairs, skylights, windows, heating systems, boilers, solar panel work and general maintenance, all with a fully mobile service that comes to you.
               </p>
 
               <div className="mt-4 text-sm font-semibold text-emerald-300">
-                Primary coverage across Craigavon and surrounding areas. We also cover all of Northern Ireland, with travel charges applied where applicable.
+                Free call out within Craigavon area (15 mile radius). We cover all of Northern Ireland, travel fee applies.
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -731,6 +731,18 @@ export default function MotorhomeRepairWebsite() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+        <div className="mb-6">
+          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Areas we cover</div>
+          <h2 className="text-3xl font-black tracking-tight">Motorhome repairs in Craigavon and across Northern Ireland</h2>
+        </div>
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <p className="text-sm leading-7 text-slate-600 md:text-base">
+            H2H Leisure provides motorhome repairs in Craigavon, as well as caravan and campervan repairs across Northern Ireland. Our mobile service covers the Craigavon area, including nearby towns such as Lurgan, Portadown, Banbridge, Armagh, Dungannon, Moira and Lisburn. We also travel throughout Northern Ireland for motorhome repairs, habitation checks, pre-purchase inspections, water leak repairs, skylight and window repairs, and heating or boiler issues, with a travel fee where applicable.
+          </p>
+        </div>
+      </section>
+
       <section id="testimonials" className="mx-auto max-w-7xl px-4 py-10 md:px-6">
         <div className="mb-6">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">What customers say</div>
@@ -746,12 +758,21 @@ export default function MotorhomeRepairWebsite() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+        <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 md:p-8">
+          <h2 className="text-2xl font-black tracking-tight text-slate-950">Why customers search for H2H Leisure</h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600 md:text-base">
+            Customers typically find us when searching for motorhome repairs in Craigavon, caravan repairs in Northern Ireland, mobile motorhome repairs, campervan repairs, habitation checks, pre-purchase inspections, water leak repairs, boiler and heating repairs, or skylight and window repairs. Our aim is to provide a professional, responsive and fully mobile service with clear communication from first enquiry to completed repair.
+          </p>
+        </div>
+      </section>
+
       <footer className="border-t border-slate-200 bg-white pb-24 md:pb-0">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="text-lg font-black">{brand.name}</div>
             <div className="text-sm text-slate-500">
-              Motorhome, caravan & campervan repairs and maintenance across Northern Ireland.
+              Motorhome, caravan and campervan repairs, habitation checks and mobile callouts across Craigavon and Northern Ireland.
             </div>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-slate-500">
